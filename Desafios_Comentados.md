@@ -69,8 +69,8 @@ Nota:
 2. Usando parseInt(gets()):
 
 - **Dado de entrada:** 30 10
-- **Saída esperada: **SOMA = 40
-- **Sua Saída: **SOMA = 40
+- **Saída esperada:** SOMA = 40
+- **Sua Saída:** SOMA = 40
 
 
 
@@ -132,8 +132,10 @@ Nota:
 2. Usando gets().split(" "):
 
 - **Dado de entrada:** 10 90
-- **Saída esperada: **0.11
-- **Sua Saída: **0.11
+- **Saída esperada:** 0.11
+- **Sua Saída: ** 0.11
 
 
 Se não usar parseFloat, não passa em alguns desafios fechados.
+
+<h4> 3/5 - Cálculo de viagem  </h4> 
