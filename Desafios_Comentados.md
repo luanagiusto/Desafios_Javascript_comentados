@@ -58,9 +58,9 @@ ____
 
 <h4> 2/5 - Coxinha de Bueno  </h4>
 
-Este desafio diz que Mônica alcançou um novo record conseguindo comer 43 coxinhas em 10 min, enquanto seu antecessor conseguiu comer 38, no mesmo tempo.  O restaurante precisa de mais algumas informações.
+Este desafio diz que Mônica alcançou um novo recorde conseguindo comer 43 coxinhas em 10 min, enquanto seu antecessor conseguiu comer 38, no mesmo tempo.  O restaurante precisa de mais algumas informações.
 
-**Desafio**:  Desenvolver um programa para calcular a quantidade média de coxinha que os participanetes conseguiram comer. 
+**Desafio**:  Desenvolver um programa para calcular a quantidade média de coxinha que os participantes conseguiram comer. 
 
 **Entrada**: Linha única contendo dois inteiros **H** (número total de coxinhas consumidas) e **P** (número total de participantes na competição), sendo (1<= H, P <= 1000).
 
@@ -123,7 +123,7 @@ let line = gets().split(" ");
 let t = parseInt(line[0]);
 let v = parseInt(line[1]);
 
-Para o cálculo da velocidade média (let media) precisamos da distancia e do tempo da viagem (t), uma vez que, velocidade media= distancia/tempo. Então: Distância = v * t.
+Para o cálculo da velocidade média (let media) precisamos da distância e do tempo da viagem (t), uma vez que, velocidade média= distância/tempo. Então: Distância = v * t.
 
 let media = (v *t)/12
 
@@ -135,7 +135,7 @@ O resultado final é o console.log(media).
 
 Por fim, o código completo:
 
-´´´
+```
 
 let line = gets().split(" ");
 let t = parseInt(line[0]);
@@ -143,7 +143,7 @@ let v = parseInt(line[1]);
 let media = (t*v/12).toFixed(3);
 console.log(media);
 
-´´´ 
+```
 
 ____
 
@@ -243,5 +243,71 @@ else {
 ____
 
 <h4> 5/5 - Teorema da divisão  </h4>
+
+Este desafio pede para desenvolver um programa para calcular o quociente e o resto  da divisão de dois números inteiros. Sendo que **a** (inteiro) divisão por **b** (não-nulo) são os números inteiros **q** e **r**, tais que:
+
+0 ≤ **r** < |**b**|
+
+Se r < 0: **r = r -** |**b**|
+
+**a** = **b** × **q** + **r**
+
+**q = ( a - r ) / b**
+
+**Entrada**: Dois números inteiros **a** e **b** em linha (-1.000 ≤ **a**, **b** < 1.000).  
+
+**Saída** : imprimir o quociente **q** seguido pelo resto **r** da divisão de a por b. 
+
+<u>Resolução</u>:
+
+Temos 4 variáveis e uma entrada (as explicações estão nos desafios anteriores):
+
+let line = gets().split(" ");
+let a = parseInt(line[0]);
+let b = parseInt(line[1]);
+let q;
+let r;
+
+O desafio pede para imprimir o resto. Para isso temos operadores específicos. A atribuição para uma divisão é **x /= y** , enquanto a atribuição de resto é **x %= y**. Então:
+
+r = a%b;
+
+E o quociente é 
+
+q = ( a - r ) / b;
+
+Mas aqui temos as condicionais para o caso de r ser <0: 
+
+if (r<0) {
+
+​	r = - r - Math.abs(b);
+​	r = Math.abs(r);
+
+}
+
+**Math.abs()** nos retorna um valor absoluto de um número "x". 
+
+A saída pede o quociente seguido pelo resto, as " " indicam um espaço entre eles. 
+
+console.log(q + " " + r);
+
+Por fim, o código completo:
+
+```
+let line = gets().split(" ");
+let a = parseInt(line[0]);
+let b = parseInt(line[1]);
+let q;
+let r;
+r = a%b;
+if (r<0){
+  r = - r - Math.abs(b);
+  r = Math.abs(r);
+}
+q = (a-r)/b;
+console.log(q + " " + r);
+```
+
+
 
 
