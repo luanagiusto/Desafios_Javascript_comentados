@@ -1,6 +1,4 @@
-# Desafios Comentados
-
-<h3> Problemas aritméticos </h3>
+# Problemas aritméticos (JavaScript)
 
 <h6>
     <ul>
@@ -55,24 +53,8 @@ var A = parseInt(gets());
 var B = parseInt(gets());
 let soma = (A + B);
 console.log("SOMA = " + soma);    
-
 ```
-
-Nota: 
-
-1. Se usar somente gets():
-
-- **Dado de entrada:** 30 10
-- **Saída esperada:** SOMA = 40
-- **Sua Saída:** SOMA = 3010
-
-2. Usando parseInt(gets()):
-
-- **Dado de entrada:** 30 10
-- **Saída esperada:** SOMA = 40
-- **Sua Saída:** SOMA = 40
-
-
+____
 
 <h4> 2/5 - Coxinha de Bueno  </h4>
 
@@ -81,8 +63,6 @@ Este desafio diz que Mônica alcançou um novo record conseguindo comer 43 coxin
 **Desafio**:  Desenvolver um programa para calcular a quantidade média de coxinha que os participanetes conseguiram comer. 
 
 **Entrada**: Linha única contendo dois inteiros **H** (número total de coxinhas consumidas) e **P** (número total de participantes na competição), sendo (1<= H, P <= 1000).
-
-
 
 **Saída**: Linha única com um número racional representando o número médio de coxinhas consumidas. Resultado em número racional com 2 dígitos após o ponto decimal.
 
@@ -109,33 +89,159 @@ A saída pede uma linha única com número médio, então, números com casas de
 
 let total = (H/P).toFixed(2); 
 
-Mas o número total é flutuante, ou seja, não está associada a nenhum objeto. A função parseFloat() vai analisar um argumento string e retornar um número de ponto flutuante. 
+Mas o número total é flutuante, ou seja, não está associada a nenhum objeto. A função **parseFloat()** vai analisar um argumento string e retornar um número **ponto flutuante**. 
 
 let total = parseFloat(H/P).toFixed(2);
 
 Por fim, o código completo:
 ```
-let x = gets().split(" ");
-let H = parseInt(x[0])
-let P = parseInt(x[1])
+let line = gets().split(" ");
+let H = parseInt(line[0])
+let P = parseInt(line[1])
 let total = parseFloat(H/P).toFixed(2);
 console.log(total);
 ```
-Nota: 
+____
 
-1. Se usar somente gets():
+<h4> 3/5 - Cálculo de viagem  </h4>
 
-- **Dado de entrada:** 10 90
-- **Saída esperada:** 0.11
-- **Sua Saída:** Infinity
+Neste desafio, Rubens quer calcular e mostrar a quantidade de litros combustível gasto em uma viagem, sendo que seu carro faz 12km/L. 
 
-2. Usando gets().split(" "):
+**Desafio**: efetuar o cálculo, fornecer o tempo gasto em horas e a velocidade média em km/h. 
 
-- **Dado de entrada:** 10 90
-- **Saída esperada:** 0.11
-- **Sua Saída: ** 0.11
+**Entrada**: Dois números inteiros: **t** (tempo gasto na viagem em horas) e **v** (velocidade média durante a msm em km/h).
+
+**Saída** : Imprimir a quantidade de litros com três dígitos após o ponto decimal.
 
 
-Se não usar parseFloat, não passa em alguns desafios fechados.
 
-<h4> 3/5 - Cálculo de viagem  </h4> 
+<u>Resolução</u>:
+
+Como no desafio anterior (2/5), temos 2 variáveis (t e v) apresentadas em uma única linha (let line). Precisamos usar o método .split() para separar/dividir as strings e a função parseInt() para analisar a string e retornar um inteiro.
+
+let line = gets().split(" ");
+let t = parseInt(line[0]);
+let v = parseInt(line[1]);
+
+Para o cálculo da velocidade média (let media) precisamos da distancia e do tempo da viagem (t), uma vez que, velocidade media= distancia/tempo. Então: Distância = v * t.
+
+let media = (v *t)/12
+
+A saída pede o resultado com três casas decimais, então usamos .toFixed(3), onde 3 indica 3 casas decimais. 
+
+let media = (v *t)/12.toFixed(3)
+
+O resultado final é o console.log(media).
+
+Por fim, o código completo:
+
+´´´
+
+let line = gets().split(" ");
+let t = parseInt(line[0]);
+let v = parseInt(line[1]);
+let media = (t*v/12).toFixed(3);
+console.log(media);
+
+´´´ 
+
+____
+
+<h4> 4/5 - Imposto de renda  </h4>
+
+Neste desafio, temos que ler um número com duas casas decimais (então devemos usar **.toFixed(2)**  no console.log) e calcular mostrando o valor que a pessoa deve pagar de imposto de renda, segundo a tabela:
+
+![img](https://resources.urionlinejudge.com.br/gallery/images/problems/UOJ_1051_pt.png)
+
+Lembrando que: se o salario for de R$3002,00 a taxa fica só sobre R$1000,00, pois salários até R$2000,00 são isentos de imposto. Então, nesse exemplo temos 8% sobre R$1000,00 + 18% sobre R$2,0 = R$80,36.
+
+**Entrada** : Um valor de ponto flutuante (parseFloat()) com duas casas decimais (to.Fixed(2)).
+
+**Saída** : imprimir o texto "R$" seguindo de um espaço e do valor total devido de imposto de renda com duas casas decimais após o ponto. Se o valor de entrada for <= 2000, imprimir: "Isento".
+
+<u>Resolução</u>:
+
+Temos 2 variáveis (salario e imposto) apresentadas em uma única linha (let line). Precisamos usar o método **.split()** para separar/dividir as strings e a função **parseFloat()** para analisar a string e retornar um ponto flutuante, mas só no caso do salário.
+
+let line = gets().split(" ");
+let salario = parseFloat(line[0]);
+let imposto;
+
+A variável imposto de renda varia de acordo com a variação do salário, então precisamos usar as condicionais **if** e **else**. Dessa forma, a condicional if verifica se a afirmação, dentro do bloco, é  verdadeira, se for falsa, verifica as afirmações dentro do else. 
+
+A primeira condicional é em relação a isenção de imposto:
+
+if (salario <= 2000,00) {
+
+imposto = 0,00;
+
+}
+
+if (imposto == 0,00) {
+
+console.log("Isento");
+
+}
+
+Se o valor for menor ou igual a 2000,00, irá ser impresso "Isento".
+
+A segunda condicional é para salários entre 2000 e 3000,00. Como o imposto só é válido acima de 2000, precisamos subtrair o salário do valor de 2000 e multiplicar pelo valor do imposto, no caso, 0,08 (equivalente a 8%).
+
+else if (salario <= 3000.00) {
+   imposto = (salario - 2000.00) * 0.08;
+
+A terceira condicional é para salários entre 3000 e 4500. Neste caso, de 3000, somente 1000 será cobrado imposto referente a 8%. Entre 3000 e 4500 será cobrado 18%, então, do valor do salário será subtraído 3000, pois este corresponde aos 8% que será somado posteriormente. Assim temos,  
+
+else if (salario <= 4500.00) {
+   imposto = (salario - 3000.00) * 0.18 + 1000.00 * 0.08;
+
+
+
+A quarta e última condicional é para salário acima de 4500. Do mesmo modo que a terceira condicional, de até 3000, somente 1000 será aplicado imposto de 8%, até 4500, somente 1500 será aplicado do imposto de 18% e acima de 4500, imposto de 28%. Assim temos, 
+
+else {
+   imposto = (salario - 4500.00) * 0.28 + 1500.00 * 0.18 + 1000.00 * 0.08;
+
+A saída esperada é um texto em R$ com duas casas decimais (.toFixed(2)) e caso o valor seja menor ou igual a 2000, a mensagem "Isento" deve ser impressa. Então:
+
+if (imposto == 0.0) {
+    console.log("Isento");
+}
+else {
+    console.log("R$ ", imposto .toFixed(2));
+}
+
+O código final ficará:
+
+```
+
+let line = gets().split(' ');
+let salario = parseFloat(line[0]);
+let imposto;
+if (salario <= 2000.00) {
+   imposto = 0.00;
+
+} else if (salario <= 3000.00) {
+   imposto = (salario - 2000.00) * 0.08;
+
+} else if (salario <= 4500.00) {
+   imposto = (salario - 3000.00) * 0.18 + 1000.00 * 0.08;
+
+} else {
+   imposto = (salario - 4500.00) * 0.28 + 1500.00 * 0.18 + 1000.00 * 0.08;
+
+}
+if (imposto == 0.0) {
+    console.log("Isento");
+}
+else {
+    console.log("R$ ", imposto .toFixed(2));
+}
+
+```
+
+____
+
+<h4> 5/5 - Teorema da divisão  </h4>
+
+
