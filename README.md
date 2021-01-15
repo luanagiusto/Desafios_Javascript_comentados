@@ -12,4 +12,6 @@ Estes desafios fazem parte do **Bootcamp Everis FullStack Developer** oferecido 
     </ul>
 </h6>
 
-![alt text](https://mansoesbrauna.com.br/images/pagina-em-construcao.jpg)
+Fiz os comentários de forma detalhada para tentar deixar o mais claro possível. <br>
+Se virem algo errado ou fora de contexto, me avisem, pf. <br> Vamos nos ajudando. ;)
+
