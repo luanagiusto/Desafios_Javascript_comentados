@@ -12,6 +12,18 @@ Estes desafios fazem parte do **Bootcamp Everis FullStack Developer** oferecido 
     </ul>
 </h6>
 
+<h3> Solução de Problemas Essenciais </h3>
+<h6>
+    <ul>
+    1/5 - Quadrado e ao cubo <br>
+    2/5 - A corrida de Tartarugas <br>
+    3/5 - Ultrapassando V <br>
+    4/5 - Validação de Nota <br>
+    5/5 - Pedro Bento e o Mundo de OZ
+    </ul>
+</h6>
+
 Fiz os comentários de forma detalhada para tentar deixar o mais claro possível. <br>
-Se virem algo errado ou fora de contexto, me avisem, pf. <br> Vamos nos ajudando. ;)
+Para consultas: [https://developer.mozilla.org/en-US/](https://developer.mozilla.org/en-US/) <br>
+Vamos nos ajudando. ;)
 
